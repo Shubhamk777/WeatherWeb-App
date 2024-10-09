@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8"> <!-- Character encoding for the HTML document -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures proper rendering and touch zooming on mobile devices -->
+  <title>Weather Web App</title> <!-- Title of the web page -->
+  <link rel="preconnect" href="https://fonts.gstatic.com"> <!-- Preconnect to the font server to speed up font loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> <!-- Link to Google Fonts for styling -->
+  <link rel="stylesheet" href="./src/styles.css"> <!-- Link to the external CSS file for styling -->
+  <script src="./src/script.js" defer></script> <!-- Link to the external JavaScript file, deferring its execution until the HTML is fully parsed -->
+</head>
+
+<body>
+  <!--Weather Card-->
+  <div class="card"> <!-- Container for the weather card -->
+    <div class="search"> <!-- Search bar container -->
+      <input type="text" class="search-bar" placeholder="Search"> <!-- Input field for user to enter city name -->
+      <button> <!-- Button to trigger the weather search -->
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
+          <path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="weather loading"> <!-- Container for weather information, initially hidden with a loading class -->
+      <h2 class="city">Weather in Patna</h2> <!-- City name heading -->
+      <h1 class="temp">33°C</h1> <!-- Temperature heading -->
+      <div class="flex"> <!-- Container for weather icon and description -->
+        <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" /> <!-- Weather icon -->
+        <div class="description">Cloudy</div> <!-- Weather description -->
+      </div>
+      <div class="humidity">Humidity: 91%</div> <!-- Humidity information -->
+      <div class="wind">Wind speed: 63.05 km/h</div> <!-- Wind speed information -->
+      <div class="feels-like">Feels like: 30°C</div> <!-- Feels like temperature information -->
+    </div>
+  </div>
+
+  <!-- Container for current date and time -->
+  <div class="time-date">
+    <div id="current-date"></div> <!-- Element to display the current date -->
+    <div id="current-time"></div> <!-- Element to display the current time -->
+  </div>
+
+  <!-- Link to Vanilla Tilt library for tilt effects -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+  
+  <script>
+    // Initialize Vanilla Tilt on the weather card
+    VanillaTilt.init(document.querySelectorAll(".card"), {
+      max: 4, // Maximum tilt angle
+      speed: 800, // Speed of the tilt effect
+      scale: 1.03, // Scale of the tilt effect
+      glare: true, // Enable glare effect
+      "max-glare": 0.5, // Maximum glare intensity
+    });
+  </script>
+</body>
+
+</html>
